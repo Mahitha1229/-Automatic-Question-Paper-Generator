@@ -149,6 +149,70 @@ td input[type=checkbox],th input[type=checkbox]{accent-color:var(--accent);width
 @media(max-width:1100px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.gen{grid-template-columns:1fr}.sticky{position:static}}
 @media(max-width:820px){.app{grid-template-columns:1fr}.sb{position:static;height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px}.brand{padding:0 10px 0 0}.nav{flex-direction:row}.sb .foot{display:none}.g2{grid-template-columns:1fr}.content{padding:16px}.sheet{padding:20px}}
 @media print{.sb,.top,.gen>div:first-child,.noprint,.q .act{display:none!important}.app{display:block}.content{padding:0}.gen{display:block}.card{border:0;box-shadow:none}body{background:#fff}}
+/* ===== polished theme (subtle colour) ===== */
+:root{
+  --accent:#5b5bf0;--accent2:#8b5cf6;--accent-soft:#eceeff;
+  --bg:#f3f4fb;--border:#e6e8f2;--surface2:#f7f8fd;
+  --side:#10132b;--side-active:rgba(139,92,246,.18);--side-text:#a8aed0;
+  --shadow:0 1px 2px rgba(40,44,100,.05),0 6px 18px -8px rgba(40,44,100,.14);
+  --grad:linear-gradient(135deg,#5b5bf0,#8b5cf6);
+}
+[data-theme=dark]{
+  --accent:#8b8bff;--accent2:#a78bfa;--accent-soft:#1f2147;--bg:#0b0d1d;--surface:#14172c;--surface2:#101328;--border:#252a4a;
+  --side:#080a18;--side-active:rgba(139,92,246,.2);--grad:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+body{background:radial-gradient(900px 420px at 85% -80px,rgba(139,92,246,.13),transparent 70%),radial-gradient(700px 380px at -10% 0,rgba(91,91,240,.10),transparent 70%),var(--bg);background-attachment:fixed}
+/* sidebar */
+.sb{background:linear-gradient(180deg,#171a3d 0%,#0e1128 60%,#0b0d20 100%)}
+[data-theme=dark] .sb{background:linear-gradient(180deg,#0f1128,#080a18)}
+.brand .logo{background:var(--grad);box-shadow:0 6px 16px -4px rgba(139,92,246,.7)}
+.nav button{transition:background .15s,color .15s}
+.nav button.on{background:linear-gradient(90deg,rgba(139,92,246,.32),rgba(91,91,240,.08));box-shadow:inset 3px 0 0 #a78bfa}
+.sb .foot{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.sb .foot b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:22px}
+/* top bar */
+.top{background:color-mix(in srgb,var(--surface) 80%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top h1{font-size:19px;letter-spacing:-.2px}
+/* cards */
+.card{border-radius:14px;transition:box-shadow .2s,transform .2s}
+.card .hd{background:linear-gradient(180deg,var(--surface2),var(--surface));border-radius:14px 14px 0 0}
+.kpi{position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--kc,var(--accent))}
+.kpi::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:var(--kc,var(--accent));opacity:.09}
+.grid>.kpi:nth-child(1){--kc:#5b5bf0}.grid>.kpi:nth-child(2){--kc:#14b8a6}.grid>.kpi:nth-child(3){--kc:#f59e0b}.grid>.kpi:nth-child(4){--kc:#ec4899}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px rgba(40,44,100,.28)}
+.kpi .v{color:var(--text)}
+/* buttons */
+.btn{border-radius:10px;transition:all .15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 6px 16px -6px rgba(91,91,240,.65)}
+.btn.pri:hover{color:#fff;filter:brightness(1.08);transform:translateY(-1px)}
+.btn.danger:hover{border-color:var(--bad);color:var(--bad)}
+.ibtn:hover{border-color:var(--accent);color:var(--accent)}
+/* inputs, chips, toggles */
+.seg{background:var(--accent-soft);border-color:transparent}
+.seg button.on{color:var(--accent);box-shadow:0 1px 4px rgba(40,44,100,.14)}
+.chip{transition:all .15s}.chip:hover{border-color:var(--accent);color:var(--text)}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.toggle input:checked{background:var(--grad)}
+label.l{color:#7a80a6}
+.pill.soft{background:var(--accent-soft);color:var(--accent)}
+/* tables */
+th{background:var(--accent-soft);color:var(--accent);border-bottom:1px solid var(--border)}
+tr:hover td{background:color-mix(in srgb,var(--accent-soft) 55%,transparent)}
+td select{padding:5px 8px;font-size:12.5px;border-color:transparent;background:transparent}td select:hover{border-color:var(--border)}
+/* paper sheet */
+.sheet{background:var(--surface);border-radius:12px;border-top:4px solid transparent;border-image:var(--grad) 1}
+.sec-t{background:var(--accent-soft);padding:6px 10px;border-radius:6px;border-bottom:0;margin-top:24px}
+.q .no{color:var(--accent2)}
+.q:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent);border-radius:8px}
+/* misc */
+.bar-sm i,.cols .bar{background:var(--grad)}
+.empty svg.i{color:var(--accent2);opacity:.7}
+.pk:hover{background:var(--accent-soft)}
+#toast div{border-radius:12px}
+::selection{background:var(--accent-soft)}
+@media print{body{background:#fff!important}.sheet{border:0;border-image:none}.sec-t{background:none;padding-left:0}}
 </style>
 </head>
 <body>
@@ -202,9 +266,11 @@ td input[type=checkbox],th input[type=checkbox]{accent-color:var(--accent);width
         <label class="l">Seed</label><div class="row" style="gap:6px"><input type="number" id="seed" min="0" max="9999" value="1"><button class="btn" id="shuffle" title="Random seed" style="flex:0 0 auto;padding:8px 10px"><svg class="i" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button></div>
         <label class="l">Difficulty</label>
         <div class="seg" id="diffSeg"><button class="on" data-d="Mixed">Mixed</button><button data-d="Easy">Easy</button><button data-d="Medium">Medium</button><button data-d="Hard">Hard</button></div>
+        <label class="l">Question types <span class="muted" style="text-transform:none;font-weight:400">(none = all)</span></label><div class="chips" id="typeChips"></div>
       </div>
       <p class="small muted hide" id="manualNote" style="line-height:1.6">Tick any questions in the list on the right. You can pick as many as you want; the total marks is the sum of your picks.</p>
       <label class="toggle">Section-wise layout<input type="checkbox" id="sections" checked></label>
+      <label class="l">Group sections by</label><select id="groupBy"><option value="auto">Auto (type if mixed, else marks)</option><option value="marks">Marks</option><option value="type">Question type</option></select>
     </div></div>
     <div class="card mb"><div class="hd">Paper details</div><div class="bd">
       <label class="l">Exam title</label><input type="text" id="title" value="Internal Examination">
@@ -266,6 +332,16 @@ td input[type=checkbox],th input[type=checkbox]{accent-color:var(--accent);width
     <div class="row"><div><label class="l">Topic</label><input type="text" id="addTopic" list="topicList"><datalist id="topicList"></datalist></div>
       <div><label class="l">Marks (each)</label><input type="number" id="addMarks" value="5" min="1" max="20"></div></div>
     <button class="btn pri" id="addBtn" style="margin-top:14px">Add to bank</button>
+    <hr style="border:0;border-top:1px solid var(--border);margin:20px 0">
+    <div style="font-weight:600;margin-bottom:4px">Or add one question with full details</div>
+    <div class="small muted">Uses the topic and marks above. Pick a type, add options for MCQs, an answer and an optional image.</div>
+    <div class="row"><div><label class="l">Type</label><select id="dType"></select></div><div><label class="l">Answer (optional)</label><input type="text" id="dAns" placeholder="e.g. B or the correct text"></div></div>
+    <label class="l">Question</label><textarea id="dQ" placeholder="Which data structure follows LIFO?"></textarea>
+    <div id="dOpts" class="hide"><label class="l">Options</label>
+      <div class="row"><input type="text" class="dopt" placeholder="Option A"><input type="text" class="dopt" placeholder="Option B"></div>
+      <div class="row" style="margin-top:8px"><input type="text" class="dopt" placeholder="Option C"><input type="text" class="dopt" placeholder="Option D"></div></div>
+    <label class="l">Image (optional)</label><input type="file" id="dImg" accept=".png,.jpg,.jpeg,.gif,.webp">
+    <button class="btn pri" id="dBtn" style="margin-top:14px">Add detailed question</button>
   </div></div>
 
   <div class="card">
@@ -276,11 +352,12 @@ td input[type=checkbox],th input[type=checkbox]{accent-color:var(--accent);width
       <button class="btn" id="addOpen">+ Add questions</button>
       <button class="btn hide" id="useSel">Use selected in paper</button>
       <button class="btn danger hide" id="delSel">Delete selected</button>
+      <button class="btn" id="aiLabel" title="Label unlabelled questions with the Groq LLM">AI label (Groq)</button>
       <button class="btn pri" id="saveBank">Save changes</button>
       <a class="btn" href="/api/bank.csv">Download CSV</a>
     </div>
     <div style="overflow:auto"><table>
-      <thead><tr><th style="width:36px"><input type="checkbox" id="selAll"></th><th style="width:70px">ID</th><th>Question</th><th style="width:150px">Topic</th><th style="width:80px">Marks</th><th style="width:120px">Bloom's</th><th style="width:90px">Difficulty</th></tr></thead>
+      <thead><tr><th style="width:36px"><input type="checkbox" id="selAll"></th><th style="width:70px">ID</th><th>Question</th><th style="width:150px">Topic</th><th style="width:80px">Marks</th><th style="width:130px">Type</th><th style="width:120px">Bloom's</th><th style="width:90px">Difficulty</th></tr></thead>
       <tbody id="bankBody"></tbody></table></div>
     <div class="empty hide" id="bankEmpty"><h3>No questions</h3><p>Add questions, upload a CSV or generate them from topics.</p></div>
     <div class="pager"><span class="small muted" id="pgInfo"></span><div class="row" style="gap:6px;flex:0 0 auto"><span class="small muted" id="dirty"></span><button class="btn sm" id="prev">Prev</button><button class="btn sm" id="next">Next</button></div></div>
@@ -301,7 +378,8 @@ const DC={Easy:"#22c55e",Medium:"#eab308",Hard:"#ef4444"};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const pct=x=>(x*100).toFixed(1)+"%";
 let bank=[], rows=[], dirty=false, sel=new Set(), page=1, PS=12, paper=null, analytics=null, diff="Mixed", method="templates", source="sample";
-let levelsSel=new Set(LEVELS), mode="auto", picked=new Set();
+let levelsSel=new Set(LEVELS), mode="auto", picked=new Set(), QT=[], typesSel=new Set();
+const qtLabel=id=>(QT.find(t=>t.id===id)||{}).label||id||"Short";
 const TITLES={dashboard:["Dashboard","Overview of your question bank and recent papers"],generate:["Generate Paper","Build a balanced paper from your constraints"],bank:["Question Bank","Add, edit and organise questions"],analytics:["Classifier Analytics","How well the rule-based Bloom's classifier performs"]};
 
 // ---------- helpers ----------
@@ -385,7 +463,7 @@ function setBank(b){
   $("#topicList").innerHTML=topics.map(t=>`<option value="${esc(t)}">`).join("");
   const cur=$("#bt").value;$("#bt").innerHTML='<option value="">All topics</option>'+topics.map(t=>`<option>${esc(t)}</option>`).join("");$("#bt").value=topics.includes(cur)?cur:"";
   const cp=$("#pt").value;$("#pt").innerHTML='<option value="">All topics</option>'+topics.map(t=>`<option>${esc(t)}</option>`).join("");$("#pt").value=topics.includes(cp)?cp:"";
-  drawChips();drawBank();drawPick();drawDashboard();refreshAnalytics()}
+  drawChips();drawTypeChips();drawBank();drawPick();drawDashboard();refreshAnalytics()}
 function filtered(){
   const s=$("#bq").value.trim().toLowerCase(),lv=$("#bl").value,tp=$("#bt").value;
   return rows.filter(r=>(!s||r.question.toLowerCase().includes(s)||r.topic.toLowerCase().includes(s))&&(!lv||r.level===lv)&&(!tp||r.topic===tp))}
@@ -394,7 +472,7 @@ function drawBank(){
   const slice=f.slice((page-1)*PS,page*PS);
   $("#bankBody").innerHTML=slice.map(r=>`<tr data-id="${r.id}"><td><input type="checkbox" class="ck" ${sel.has(r.id)?"checked":""}></td><td class="muted small">${r.id}</td>
     <td><input type="text" class="eq" value="${esc(r.question)}"></td><td><input type="text" class="et" value="${esc(r.topic)}"></td>
-    <td><input type="number" class="em" min="1" max="50" value="${r.marks}"></td><td>${lvPill(r.level,r.stale)}</td><td>${dfTag(r.difficulty)}</td></tr>`).join("");
+    <td><input type="number" class="em" min="1" max="50" value="${r.marks}"></td><td><select class="ety">${QT.map(t=>`<option value="${t.id}" ${t.id===r.qtype?"selected":""}>${esc(t.label)}</option>`).join("")}</select></td><td>${lvPill(r.level,r.stale)}</td><td>${dfTag(r.difficulty)}</td></tr>`).join("");
   $("#bankEmpty").classList.toggle("hide",f.length>0);
   $("#pgInfo").textContent=f.length?`Showing ${(page-1)*PS+1}-${Math.min(page*PS,f.length)} of ${f.length}`:"0 questions";
   $("#prev").disabled=page<=1;$("#next").disabled=page>=pages;
@@ -409,18 +487,32 @@ $("#bankBody").addEventListener("input",e=>{
   if(e.target.classList.contains("eq")){r.question=e.target.value;r.stale=true}
   else if(e.target.classList.contains("et"))r.topic=e.target.value;
   else if(e.target.classList.contains("em"))r.marks=+e.target.value;
+  else if(e.target.classList.contains("ety"))r.qtype=e.target.value;
   else if(e.target.classList.contains("ck")){e.target.checked?sel.add(r.id):sel.delete(r.id);drawBank();return}
   dirty=true;$("#dirty").textContent="Unsaved changes"});
 $("#selAll").onchange=e=>{const f=filtered().slice((page-1)*PS,page*PS);f.forEach(r=>e.target.checked?sel.add(r.id):sel.delete(r.id));drawBank()};
 $("#delSel").onclick=()=>{rows=rows.filter(r=>!sel.has(r.id));sel.clear();dirty=true;drawBank()};
 $("#saveBank").onclick=async e=>{
   const b=e.currentTarget;busy(b,1,"Saving");
-  const j=await api("/api/bank/save",{rows:rows.map(r=>({id:r.id,question:r.question,topic:r.topic,marks:r.marks}))});busy(b,0);
+  const j=await api("/api/bank/save",{rows:rows.map(r=>({id:r.id,question:r.question,topic:r.topic,marks:r.marks,qtype:r.qtype,options:r.options||[],answer:r.answer,image_path:r.image_path}))});busy(b,0);
   if(j){setBank(j.bank);resetPaper();toast("Question bank saved")}};
 $("#addOpen").onclick=()=>$("#addCard").classList.remove("hide");$("#addClose").onclick=()=>$("#addCard").classList.add("hide");
 $("#addBtn").onclick=async()=>{
   const j=await api("/api/bank/add",{text:$("#addText").value,topic:$("#addTopic").value,marks:$("#addMarks").value});
   if(j){setBank(j.bank);$("#addText").value="";toast(`Added ${j.added} question(s) under '${j.topic}'`+(j.skipped?` (${j.skipped} duplicates skipped)`:""))}};
+const needOpts=()=>["mcq","assertion_reason"].includes($("#dType").value);
+function drawAddForm(){const v=$("#dType").value;$("#dType").innerHTML=QT.map(t=>`<option value="${t.id}">${esc(t.label)}</option>`).join("");if(v)$("#dType").value=v;$("#dOpts").classList.toggle("hide",!needOpts())}
+$("#dType").onchange=()=>$("#dOpts").classList.toggle("hide",!needOpts());
+$("#dBtn").onclick=async e=>{const b=e.currentTarget;busy(b,1,"Adding");
+  const opts=needOpts()?$$(".dopt").map(x=>x.value.trim()).filter(Boolean):[];
+  let j=await api("/api/question/add",{question:$("#dQ").value,topic:$("#addTopic").value,marks:$("#addMarks").value,qtype:$("#dType").value,options:opts,answer:$("#dAns").value});
+  const f=$("#dImg").files[0];
+  if(j&&j.added&&j.id&&f){const fd=new FormData();fd.append("id",j.id);fd.append("file",f);const k=await api("/api/question/image",fd);if(k)j=k}
+  busy(b,0);if(!j)return;setBank(j.bank);
+  if(j.added){$("#dQ").value="";$("#dAns").value="";$("#dImg").value="";$$(".dopt").forEach(x=>x.value="");toast("Question added")}else toast("That question is already in the bank","warn")};
+$("#aiLabel").onclick=async e=>{const b=e.currentTarget;busy(b,1,"Labelling");
+  const j=await api("/api/bank/classify",{api_key:$("#key").value});busy(b,0);
+  if(j){setBank(j.bank);toast(`Labelled ${j.classified} question(s) with the LLM`+(j.failed?` (${j.failed} fell back to rules)`:""),j.failed?"warn":"")}};
 seg("#srcSeg","s",async s=>{source=s;$("#p-upload").classList.toggle("hide",s!=="upload");$("#p-topics").classList.toggle("hide",s!=="topics");
   const j=await api("/api/source",{source:s});if(j){setBank(j.bank);resetPaper();if(j.error)toast(j.error,"err")}});
 seg("#methSeg","m",m=>{method=m;$("#aiBox").classList.toggle("hide",m!=="ai")});
@@ -438,20 +530,25 @@ function drawChips(){
   $("#levelChips").innerHTML=LEVELS.map(l=>`<button class="chip ${levelsSel.has(l)?"on":""}" data-l="${l}"><span class="dot" style="background:${LC[l]}"></span>${l} <small>${c[l]||0}</small></button>`).join("");
   syncN()}
 $("#levelChips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const l=b.dataset.l;levelsSel.has(l)?levelsSel.delete(l):levelsSel.add(l);drawChips()};
-function syncN(){const c=bank.filter(q=>levelsSel.has(q.level)).length,n=$("#n");n.max=Math.max(1,c);
+function drawTypeChips(){
+  const c=count(bank,q=>q.qtype);
+  $("#typeChips").innerHTML=QT.map(t=>`<button class="chip ${typesSel.has(t.id)?"on":""}" data-t="${t.id}">${esc(t.label)} <small>${c[t.id]||0}</small></button>`).join("");
+  drawAddForm();syncN()}
+$("#typeChips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const t=b.dataset.t;typesSel.has(t)?typesSel.delete(t):typesSel.add(t);drawTypeChips()};
+function syncN(){const c=bank.filter(q=>levelsSel.has(q.level)&&(!typesSel.size||typesSel.has(q.qtype))).length,n=$("#n");n.max=Math.max(1,c);
   if(+n.value>c&&c>0)n.value=c;$("#nAvail").textContent=`${c} question${c===1?"":"s"} available for the selected levels`}
 $("#n").onchange=syncN;
 seg("#diffSeg","d",d=>diff=d);
 $("#shuffle").onclick=()=>$("#seed").value=Math.floor(Math.random()*9999);
 const cfg=()=>mode==="manual"
-  ?{mode:"manual",ids:[...picked],sections:$("#sections").checked}
-  :{mode:"auto",levels:[...levelsSel],n:+$("#n").value,marks:+$("#marks").value,difficulty:diff,seed:+$("#seed").value,sections:$("#sections").checked};
+  ?{mode:"manual",ids:[...picked],sections:$("#sections").checked,group_by:$("#groupBy").value}
+  :{mode:"auto",levels:[...levelsSel],n:+$("#n").value,marks:+$("#marks").value,difficulty:diff,seed:+$("#seed").value,types:[...typesSel],sections:$("#sections").checked,group_by:$("#groupBy").value};
 function setConfig(c,p){
-  $("#sections").checked=c.sections;
+  $("#sections").checked=c.sections;$("#groupBy").value=c.group_by||"auto";
   if(p){$("#title").value=p.title;$("#subject").value=p.subject}
   if(c.mode==="manual"){picked=new Set(c.ids.filter(id=>bank.some(q=>q.id===id)));setMode("manual");return}
   setMode("auto");
-  levelsSel=new Set(c.levels);$("#marks").value=c.marks;$("#seed").value=c.seed;
+  levelsSel=new Set(c.levels);typesSel=new Set(c.types||[]);drawTypeChips();$("#marks").value=c.marks;$("#seed").value=c.seed;
   diff=c.difficulty;$$("#diffSeg button").forEach(b=>b.classList.toggle("on",b.dataset.d===diff));
   drawChips();$("#n").value=c.n;syncN()}
 async function generate(btn){
@@ -464,10 +561,16 @@ async function generate(btn){
   try{localStorage.qpHist=JSON.stringify(h.slice(0,8))}catch(e){}drawHistory()}
 $("#genBtn").onclick=e=>generate(e.currentTarget);$("#regen").onclick=e=>generate(e.currentTarget);
 function resetPaper(){paper=null;$("#paperView").classList.add("hide");$("#paperEmpty").classList.remove("hide")}
-$("#sections").onchange=async()=>{if(!paper)return;const j=await api("/api/paper/layout",{sections:$("#sections").checked});if(j){paper=j;drawPaper()}};
+const relayout=async()=>{if(!paper)return;const j=await api("/api/paper/layout",{sections:$("#sections").checked,group_by:$("#groupBy").value});if(j){paper=j;drawPaper()}};
+$("#sections").onchange=relayout;$("#groupBy").onchange=relayout;
 ["title","subject","duration"].forEach(id=>$("#"+id).oninput=()=>{if(paper)drawPaper()});
 $("#sheet").onclick=async e=>{const b=e.target.closest("[data-swap]");if(!b)return;
-  const j=await api("/api/paper/swap",{id:b.dataset.swap,sections:$("#sections").checked});if(j){paper=j;drawPaper();if(j.msg)toast(j.msg,"warn")}};
+  const j=await api("/api/paper/swap",{id:b.dataset.swap,sections:$("#sections").checked,group_by:$("#groupBy").value});if(j){paper=j;drawPaper();if(j.msg)toast(j.msg,"warn")}};
+function qExtra(q){
+  const L="ABCDEFGH";
+  const img=q.image_url?`<img src="${esc(q.image_url)}" alt="" style="max-width:280px;max-height:200px;display:block;margin:8px 0;border-radius:6px;border:1px solid var(--border)">`:"";
+  const op=(q.options||[]).length?`<div style="margin:6px 0 2px;display:grid;grid-template-columns:1fr 1fr;gap:3px 18px">${q.options.map((o,i)=>`<div>${/^\(?[A-Da-d][).:]\s/.test(o)?"":L[i]+". "}${esc(o)}</div>`).join("")}</div>`:"";
+  return img+op}
 function drawPaper(){
   $("#paperEmpty").classList.add("hide");$("#paperView").classList.remove("hide");
   const items=paper.groups.flatMap(g=>g.items), lv=count(items,q=>q.level), df=count(items,q=>q.difficulty), tp=count(items,q=>q.topic);
@@ -480,14 +583,14 @@ function drawPaper(){
    <div class="meta"><span>Time: ${esc($("#duration").value)}</span><span>Total Marks: ${paper.total}</span></div>`+
    paper.groups.map(g=>(g.heading?`<div class="sec-t">${esc(g.heading)}</div>`:"")+g.items.map(q=>`
     <div class="q"><div class="no">Q${q.no}.</div>
-     <div><div>${esc(q.question)}</div><div class="tags">${lvPill(q.level)}${dfTag(q.difficulty)}<span>${esc(q.topic)}</span></div></div>
+     <div><div>${esc(q.question)}</div>${qExtra(q)}<div class="tags"><span class="pill soft">${esc(qtLabel(q.qtype))}</span>${lvPill(q.level)}${dfTag(q.difficulty)}<span>${esc(q.topic)}</span></div></div>
      <div class="mk">[${q.marks}]<div class="act noprint"><button class="btn sm" data-swap="${q.id}" style="margin-top:6px">Swap</button></div></div></div>`).join("")).join("");
   $("#pCharts").innerHTML=
     `<div class="card"><div class="hd">Bloom's levels</div><div class="bd">${hbars(LEVELS.map(l=>({label:l,value:lv[l]||0,color:LC[l]})))}</div></div>`+
     `<div class="card"><div class="hd">Difficulty</div><div class="bd">${hbars(DIFFS.map(d=>({label:d,value:df[d]||0,color:DC[d]})))}</div></div>`+
     `<div class="card"><div class="hd">Topics</div><div class="bd">${hbars(Object.entries(tp).map(([l,v])=>({label:l,value:v})),"var(--accent)")}</div></div>`}
 $$("[data-x]").forEach(b=>b.onclick=async()=>{
-  const blob=await api("/api/export/"+b.dataset.x,{title:$("#title").value,subject:$("#subject").value,duration:$("#duration").value,sections:$("#sections").checked},true);
+  const blob=await api("/api/export/"+b.dataset.x,{title:$("#title").value,subject:$("#subject").value,duration:$("#duration").value,sections:$("#sections").checked,group_by:$("#groupBy").value},true);
   if(!blob)return;const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="question_paper."+b.dataset.x;a.click();URL.revokeObjectURL(a.href)});
 
 // ---------- manual pick ----------
@@ -541,7 +644,7 @@ function drawAnalytics(){
      </div></div></div></div>`}
 
 // ---------- init ----------
-fetch("/api/bank").then(r=>r.json()).then(j=>{source=j.source||"sample";setBank(j.bank)});
+fetch("/api/bank").then(r=>r.json()).then(j=>{source=j.source||"sample";QT=j.qtypes||[];setBank(j.bank)});
 go("dashboard");
 </script>
 </body>

@@ -1,0 +1,37 @@
+question,topic,marks,true_bloom_level
+Which of the following is a LIFO data structure? (A) Queue (B) Stack (C) Array (D) Heap,Stack,1,Remember
+Fill in the blank: Accessing an array element by its index takes ____ time.,Arrays,1,Remember
+What is the full form of BFS?,Graphs,1,Remember
+True or False: A linked list allows constant-time random access to its elements.,Linked List,1,Remember
+Name the data structure the system uses internally to manage recursive function calls.,Recursion,2,Remember
+Write the declaration of a singly linked list node in C.,Linked List,2,Remember
+Why does a hash table need a collision resolution strategy?,Hashing,3,Understand
+Which of the following best explains why a recursive function needs a base case? (A) To save memory (B) To stop the recursion (C) To speed up calls (D) To return a value,Recursion,3,Understand
+In your own words, what happens when a stack overflows?,Stack,3,Understand
+Give a real-life example of a queue and explain why it fits.,Queue,3,Understand
+What does the following code do? def f(s): return s == s[::-1],General,3,Understand
+Summarize in two sentences how a min-heap keeps the smallest element at the root.,Trees,3,Understand
+Write a program to reverse a singly linked list.,Linked List,5,Apply
+What will be the output of the following code? stack=[]; stack.append(1); stack.append(2); stack.pop(); print(stack),Stack,5,Apply
+Given the array [5 3 8 1]; trace the steps of bubble sort.,Sorting,5,Apply
+Insert the keys 10; 20; 30 into an empty AVL tree and show the rotations.,Trees,5,Apply
+Fill in the blank: After inserting 10 and then 5 into an empty min-heap; the root is ____.,Trees,5,Apply
+Evaluate the postfix expression 2 3 + 4 * using a stack and show each step.,Stack,5,Apply
+Why is quicksort usually faster than mergesort in practice despite the same average complexity?,Sorting,5,Analyze
+What is the difference between BFS and DFS in terms of memory usage?,Graphs,5,Analyze
+Which input causes the O(n^2) worst case in quicksort; and why?,Sorting,5,Analyze
+How does the choice of hash function affect the number of collisions?,Hashing,5,Analyze
+Compare arrays and linked lists for insertion and deletion.,Linked List,5,Analyze
+Identify the error in a binary search that uses mid = (low + high) / 2 and explain its effect.,Searching,5,Analyze
+Is a hash table or a balanced BST a better choice for a dictionary of words? Justify your answer.,Hashing,6,Evaluate
+Which sorting algorithm would you recommend for nearly sorted data? Give reasons.,Sorting,6,Evaluate
+A colleague claims recursion is always slower than iteration. Do you agree?,Recursion,6,Evaluate
+Assess whether implementing a stack with a linked list is more efficient than with an array.,Stack,6,Evaluate
+Choose the most suitable data structure for an undo feature and defend your choice.,Stack,6,Evaluate
+Which tree traversal is most appropriate for copying a tree; and is it better than the alternatives? Explain.,Trees,6,Evaluate
+Design a data structure that supports insert; delete and getRandom in O(1) time.,General,8,Create
+Write an original algorithm to schedule exam rooms using graph colouring.,Graphs,8,Create
+How would you build a spell checker using a trie? Outline your design.,Trees,8,Create
+Come up with a new hashing scheme that reduces clustering.,Hashing,8,Create
+Build a small LRU cache using a hash map and a doubly linked list.,Hashing,8,Create
+Devise a strategy to merge k sorted lists efficiently.,Sorting,8,Create
